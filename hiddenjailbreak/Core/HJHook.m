@@ -174,7 +174,7 @@
     || [name containsString:@"Substrate"]
     || [name containsString:@"substrate"]
     || [name containsString:@"substitute"]
-    || [name containsString:@"Substitrate"]
+    || [name containsString:@"Substitute"]
     || [name containsString:@"TweakInject"]
     || [name containsString:@"jailbreak"]
     || [name containsString:@"cycript"]
