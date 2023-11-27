@@ -181,6 +181,21 @@
     || [name containsString:@"SBInject"]
     || [name containsString:@"pspawn"]
     || [name containsString:@"rocketbootstrap"]
+    || [name containsString:@"SSLKillSwitch"]
+    || [name containsString:@"cynject"]
+    || [name containsString:@"CustomWidgetIcons"]
+    || [name containsString:@"PreferenceLoader"]
+    || [name containsString:@"RocketBootstrap"]
+    || [name containsString:@"WeeLoader"]
+    || [name containsString:@"libhooker"]
+    || [name containsString:@"ABypass"]
+    || [name containsString:@"FlyJB"]
+    || [name containsString:@"Cephei"]
+    || [name containsString:@"Electra"]
+    || [name containsString:@"AppSyncUnified"]
+    || [name containsString:@"Shadow"]
+    || [name containsString:@"FridaGadget"]
+    || [name containsString:@"frida"]
     || [name containsString:@"bfdecrypt"]) {
         return YES;
     }
@@ -255,18 +270,18 @@
     }
 
     // Exclude some paths under tweak compatibility mode.
-    if(_useTweakCompatibilityMode) {
-        if([path hasPrefix:@"/Library/Application Support"]
-        || [path hasPrefix:@"/Library/Frameworks"]
-        || [path hasPrefix:@"/Library/Themes"]
-        || [path hasPrefix:@"/Library/SnowBoard"]
-        || [path hasPrefix:@"/Library/PreferenceBundles"]
-        || [path hasPrefix:@"/var/mobile/Library/Preferences"]
-        || [path hasPrefix:@"/User/Library/Preferences"]) {
-            NSLog(@"unrestricted path (tweak compatibility): %@", path);
-            return NO;
-        }
-    }
+    // if(_useTweakCompatibilityMode) {
+    //     if([path hasPrefix:@"/Library/Application Support"]
+    //     || [path hasPrefix:@"/Library/Frameworks"]
+    //     || [path hasPrefix:@"/Library/Themes"]
+    //     || [path hasPrefix:@"/Library/SnowBoard"]
+    //     || [path hasPrefix:@"/Library/PreferenceBundles"]
+    //     || [path hasPrefix:@"/var/mobile/Library/Preferences"]
+    //     || [path hasPrefix:@"/User/Library/Preferences"]) {
+    //         NSLog(@"unrestricted path (tweak compatibility): %@", path);
+    //         return NO;
+    //     }
+    // }
 
     // Check path components with path map.
     if(!ret) {
@@ -334,6 +349,8 @@
     // Package manager URL scheme checks
     if([[url scheme] isEqualToString:@"cydia"]
     || [[url scheme] isEqualToString:@"sileo"]
+    || [[url scheme] isEqualToString:@"undecimus"]
+    || [[url scheme] isEqualToString:@"activator"]
     || [[url scheme] isEqualToString:@"zbra"]) {
         return YES;
     }
