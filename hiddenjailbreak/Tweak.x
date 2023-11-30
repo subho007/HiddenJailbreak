@@ -1803,7 +1803,7 @@ static void dyld_image_added(const struct mach_header *mh, intptr_t slide) {
         NSString *image_name = [[NSFileManager defaultManager] stringWithFileSystemRepresentation:ret length:strlen(ret)];
 
         if([_hiddenjailbreak isImageRestricted:image_name]) {
-            return "/.file";
+            return "/.ffff";
         }
     }
 
@@ -2384,6 +2384,32 @@ static void dyld_image_added(const struct mach_header *mh, intptr_t slide) {
 %hook AWMyDeviceGeneralInfo
 - (bool)isCompliant {
     return true;
+}
+%end
+
+%hook IRoot
+- (bool)jailbroken {
+    return false;
+}
+%end
+
+%hook DeviceSecuriy 
++ (bool)jailedBrokenDeviceCondtion {
+    return false;
+}
+
++ (bool)checkProxy {
+    return false;
+}
+
++ (bool)isVPNConnected {
+    return false;
+}
+%end
+
+%hook JailMonkey
+- (bool)isJailBroken {
+    return false;
 }
 %end
 %end
